@@ -1,7 +1,228 @@
-<html>
-	<head>
-	</head>
-	<body>
-		Project 1 here
-	</body>
+ <html>
+    <head>
+        <style>
+            body {
+                text-align: center;
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                padding-left: 10%;
+                padding-right: 10%;
+                padding-bottom: 50px;
+                padding-top: 50px;
+            }
+
+        </style> 
+    </head>
+
+    <body >
+        <h1>CS 184 Assignment 1: Rasterizer</h1>
+        <h2>Task 1: Drawing Single-Color Triangles</h2>
+        <p>
+            In order to rasterize triangles, my function took in 3 points that represent the corners of the triangle. I iterated over every single pixel
+			that is within the minimum and maximum x and y value for the three points. This ensures that I check all points that are inside of the triangle.
+			I was able to check if each point was inside of the triangle by first determining if the points were given to me in a clockwise manner, or counter clockwise
+			by checking if the third point was above or below the line that is creaeted by the first two points. Using this information, I was able to determine
+			if any given point was in the triangle by checking to make sure that it is above all 3 lines created by the 3 points of the triangle. <br>
+			Since I check every since pixel in the bounding box, this has the same run time as another algorithm that would check each sample within 
+			the bounding box of the triangle.
+        </p>
+        <div align="center">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            <img src="out/task1_test4.png" >
+                            <figcaption align="middle">test4.svg with default settings</figcaption>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <h2>Task 2: Antialiasing by Supersampling</h2>
+        <p>In order to implement super sampling, I first changed the size of the sample buffer to be [width * height * sample_rate]. \
+			I did this so that every pixel would have sample_rate indices in the sample buffer for me to down sample later. 
+			In order to super sample, I checked if sample_rate number of samples within a pixel was inside of the triangle. 
+			If it was in the triangle, then the appropriate index in the sample buffer was changed to the color specified. 
+			In the function resolve_to_framebuffer, for each pixel, I averaged out the sample_rate number of indices that correspond 
+			to the subpixels for the pixel I care about. This got reid of jaggies, and made the triangles appear smoother. 
+			In order to make sure that these changes worked properly, I also had to change fill_pixel so that one point fills in sample_rate 
+			indices in the sample buffer to ensure that the whole pixel is filled in with that color. 
+        </p>
+        
+        <div align="center">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            <img src="out/task1_test4_sr1.png"style="width:85%;height:85%;padding-left:15%">
+                            <figcaption align="middle">Sample Rate 1</figcaption>
+                        </td>
+                        <td>
+                            <img src="out/task1_test4_sr4.png"style="width:85%;height:85%;padding-left:15%">
+                            <figcaption align="middle">Sample Rate 4</figcaption>
+                        </td>
+						<td>
+                            <img src="out/task1_test4_sr16.png"style="width:85%;height:85%;padding-left:15%">
+                            <figcaption align="middle">Sample Rate 16</figcaption>
+                        </td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+
+		<p>
+			If you look at the zoomed in portion, you can tell that the skinny triangle looks disconnected in the first image 
+			with a sample rate of 1, but as we increase the sample rate, it connects the triangle because the sub pixels are considered 
+			part of the triangle so we are able to get color where we need it. Supersampling allows us to draw more accurate traingles. 
+
+		</p>
+
+        <h2>Task 3: Transforms</h2>
+        <p>
+			I wanted to make it look like my robot is in the middle of doing a middle split jump. I changed the color of the arms to purple,
+			and the legs to green so that it is easier to differentiate them.
+        </p>
+        <div align="center">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            <img src="out/robot_splits.png">
+                            <figcaption align="middle">Robot doing a jumping splits</figcaption>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <h2>Task 4: Barycentric Coordinates</h2>
+        <p>
+			Basically, barycentric coordinates are a way of representing points within a triangle. barycentric coordinates 
+			tell you the ratio of the points of the triangle that when combined give you your wanted point. For example, in the image below, 
+			the black point is inside this triangle that has points colored red, green, and blue.  In the same way that we 
+			can represent the color at that black point as a combination of red, green and blue, we can represent the 
+			location at that point as a combination of the location of the red green and blue points. In order to determine the points location 
+			within the triangle, we can use the equations given in class which is also shown below. (&alpha;, &beta;, &gamma;) is our
+			barycentric coordinate. If we have (&alpha;, &beta;, &gamma;) for our black dot, we can find the (x, y) representation of it by
+			doing (x, y) = &alpha; * red + &beta; * blue + &gamma; * green. You can also use similar logic ot find the color at the black dot. 
+        </p>
+		<div align="center">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            <img src="out/barycentric.png">
+                            <figcaption align="middle">The black dot can be represented using barycentric coordinates</figcaption>
+                        </td>
+                    </tr>
+					<tr>
+                        <td>
+                            <img src="out/bary_slides.png">
+                            <figcaption align="middle">Equations from lecture slides</figcaption>
+                        </td>
+                    </tr>
+					<tr>
+                        <td>
+                            <img src="out/colorwheel.png">
+                            <figcaption align="middle">My Pretty Color Wheel</figcaption>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+        <h2>Task 5: "Pixel sampling" for texture mapping</h2>
+        <p>
+			The way I think about pixel sampling is that you texture has all of the colors that you want, but it is flat. 
+			We want to take the colors from our texture and rearrange them in a way so that it takes the shape that we tell it to. 
+			In order to do this, I used barycentric coordinates to map (x, y) values in my frame buffer to (u, v) coordinates from the texture. 
+			There since (u, v) is most likely not a whole number, there are a few methods to determine what color to sample from the texture. One of 
+			these methods is nearest pixel, which basically just matches the color of the nearest whole pixel to the (u, v). Another method is bilinear 
+			interpolation. This basically takes the 4 nearest pixel colors, and interpolates the color value for (u, v) based on its distance from 
+			each of the 4 points. This method makes images look smoother since pixels will blend into one another better. 
+
+        </p>
+        <div align="center">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            <img src="out/nearest_1.png">
+                            <figcaption align="middle">Nearest Pixel sample_rate = 1</figcaption>
+                        </td>
+                        <td>
+                            <img src="out/bilinear_1.png">
+                            <figcaption align="middle">Bilinear sample_rate = 1</figcaption>
+                        </td>
+                    </tr>
+					<tr>
+                        <td>
+                            <img src="out/nearest_16.png">
+                            <figcaption align="middle">Nearest Pixel sample_rate = 16</figcaption>
+                        </td>
+                        <td>
+                            <img src="out/bilinear_16.png">
+                            <figcaption align="middle">Bilinear sample_rate = 16</figcaption>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+		<p>
+			As can be seen above, bilinear interpolation creates a smoother picture particularly in the lines. The nearest pixel with a sample_rate of 1
+			fails to connect the vertical white line. it has holes in it, but the bilinear method is able to smoothly create the white lines at a sample_rate of 1. 
+			I think that the difference between the two sampling methods can most clearly be seen when looking at fine details suxh as small straight lines since
+			it is easy for our eyes to notice things like this. I thinkt that the bilinear interpolation smoothly transitions between colors where as the nearest pixel might have sudden changes 
+			in color where we might not expect it. 
+		</p>
+
+
+        <h2>Task 6: "Level Sampling" with mipmaps for texture mapping</h2>
+        <p>
+			Level sampling is a method that is used to makes sure that things that are far away do not look aliased, and while also making sure that things that
+			are close to use remain in focus or clear. For my texture mapping, we were already given the different levels that we can sample from, but for each 
+			subpixel, I had to determine the level of the mipmap that I would sample from absed on how much my (u,v) value changed when I added 1 to the x or y 
+			value. I used the equation given to us in class, but similarly to our (u,v) coordinates, the level that we are given is rarely a whole number, so 
+			this requires us to choose a sampling method to decide which level to use. Just like with pixel sampling, we can use nearest, or bilinear to choose which 
+			level to sample from. <br>
+			In terms of the speed of different sampling methods, increasing the sample rate will increase the run time since you will have to sample more points. Bilinear
+			methods for pixel and level sampling will take longer than theri nearest counterpart since you will have to sample more from the texture when you do bilinear
+			whereas when you do nearest you only need to sample once ber (u, v) coordinate. In terms of memory usage, increasing the sample rate will increase the amount of 
+			memory needed since we will need to increase the size of the sample_buffer. For my implementation, I will have to create more objects for bilinear sampling
+			sampling, so the memory usage is a bit more for that than nearest. In terms of antialiasing power, higher sampling rates are better for antialiasing, and bilinear 
+			sampling is better for both pixel and level selection. 
+		</p>
+        <div align="center">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            <img src="out/l0_pnear.png">
+                            <figcaption align="middle">L_ZERO and P_NEAREST</figcaption>
+                        </td>
+                        <td>
+                            <img src="out/l0_plinear.png">
+                            <figcaption align="middle">L_ZERO P_LINEAR</figcaption>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img src="out/lnearest_pnear.png">
+                            <figcaption align="middle">L_NEAREST P_NEAREST</figcaption>
+                        </td>
+                        <td>
+                            <img src="out/lnearest_plinear.png">
+                            <figcaption align="middle">L_NEAREST P_LINEAR</figcaption>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+		<p>
+			Here you can see the subtle differences between the different methods. 
+		</p>
+        
+    </body>
 </html>
