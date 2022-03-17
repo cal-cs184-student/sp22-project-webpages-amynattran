@@ -131,7 +131,7 @@
             Rendering Lucy without bvh acceleration resulted in a rendering time of about 227.84 seconds vs 0.03 seconds, and our rendering for max_planck
             was 119.07 seconds vs 0.06 seconds. This shows that even if we’re rendering geometrically complex scenes, our time complexity grows logarithmically!
         </p>
-        <h2 align="middle">Part3: Direct Illumination</h2>
+        <h2 align="middle">Part 3: Direct Illumination</h2>
         <p>
             To perform direct lighting with uniform hemisphere sampling, we perform a Monte Carlo estimation with uniformed samples on the hemisphere.
             To do this, we first iterate through the desired number of samples and call hemisphereSampler->get_sample(). This function returns a random
