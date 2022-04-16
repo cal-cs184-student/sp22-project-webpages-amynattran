@@ -30,914 +30,443 @@
 
 	<br><br>
 
-	<div>
+		<div>
 
-		<h2 align="middle">Overview</h2>
-		<p>In this project we learn how to simluate cloth through the use of springs and the connections between the srpings whoch allows us to make more realistic falling and folding from the cloth and on surfaces like spheres or planes. We also learn how to map textures onto this moving cloth to look as it should, taking into account the folds of the cloth.</p>
+			<h2 align="middle">Overview</h2>
+			<p>In this project we learn how to simluate cloth through the use of springs and the connections between the srpings whoch allows us to make more realistic falling and folding from the cloth and on surfaces like spheres or planes. We also learn how to map textures onto this moving cloth to look as it should, taking into account the folds of the cloth.</p>
 
-		<h2 align="middle">Part I: Masses and springs</h2>
-		<div align="center">
-			<table style="width=100%">
-				<tr>
-					<td align="middle">
-						<img src="images/pinned2_ang4_part1.png" width="480px" />
-						<figcaption align="middle">all constraints active mesh</figcaption>
-					</td>
-					<td>
-						<img src="images/pinned2_ang4_part1_shear.png" width="480px" />
-						<figcaption align="middle">only shearing active mesh</figcaption><!-- this might be a problem later i can't remember-->
-					</td>
-					<td>
-						<img src="images/pinned2_ang4_part1_noshear.png" width="480px" />
-						<figcaption align="middle">no shearing active mesh</figcaption><!-- this might be a problem later i can't remember-->
-					</td>
-				</tr>
-			</table>
-		</div>
-		<br />
-		<h2 align="middle">Part II: Simulation via numerical integration</h2>
-		<div align="center">
-			<table style="width=100%">
-				<tr>
-					<td align="middle">
-						<img src="images/pinned2_ang1_part2_def.png" width="480px" />
-						<figcaption align="middle">Default simulation </figcaption>
-					</td>
-				</tr>
-			</table>
-		</div>
-		<br /><br />
-		<h3 align="middle">Varing ks Simulations</h3>
-		<div align="center">
-			<table style="width=100%">
-				<tr>
-					<td align="middle">
-						<img src="images/pinned2_ang1_part2_high_ks.png" width="480px" />
-						<figcaption align="middle">High ks Simulation</figcaption>
-					</td>
-					<td>
-						<img src="images/pinned2_ang1_part2_low_ks.png" width="480px" />
-						<figcaption align="middle">Low ks Simulation</figcaption><!-- this might be a problem later i can't remember-->
-					</td>
-				</tr>
-			</table>
-		</div>
-		<p>
-			When we tested with a higher ks the simulation looked like the cloth was held tighter together causing less wrinkles in the simulation.
+			<h2 align="middle">Part I: Masses and springs</h2>
+			<div align="center">
+				<table style="width=100%">
+					<tr>
+						<td align="middle">
+							<img src="images/pinned2_ang4_part1.png" width="480px" />
+							<figcaption align="middle">all constraints active mesh</figcaption>
+						</td>
+						<td>
+							<img src="images/pinned2_ang4_part1_shear.png" width="480px" />
+							<figcaption align="middle">only shearing active mesh</figcaption><!-- this might be a problem later i can't remember-->
+						</td>
+						<td>
+							<img src="images/pinned2_ang4_part1_noshear.png" width="480px" />
+							<figcaption align="middle">no shearing active mesh</figcaption><!-- this might be a problem later i can't remember-->
+						</td>
+					</tr>
+				</table>
+			</div>
 			<br />
-			Then when we later look at the simulation with a low ks and we see that the dip in pinned2 looks deeper and making it seem heavier also causing a deep “wrinkle” right under the dip but causing the side “wrinkles” to seem shallower.
-		</p>
-		<br />
-		<h3 align="middle">Varing Density Simulations</h3>
-		<div align="center">
-			<table style="width=100%">
-				<tr>
-					<td align="middle">
-						<img src="images/pinned2_ang1_part2_high_density.png" width="480px" />
-						<figcaption align="middle">High Density Simulation</figcaption>
-					</td>
-					<td>
-						<img src="images/pinned2_ang1_part2_low_density.png" width="480px" />
-						<figcaption align="middle">Low Density Simulation</figcaption><!-- this might be a problem later i can't remember-->
-					</td>
-				</tr>
-			</table>
-		</div>
-		<p>
-			High density actually only affected the dip in the cloth actually making it heavier and causing a sort of second dip right below the first due to the weight that the top of the cloth is actually having to support.
+			<h2 align="middle">Part II: Simulation via numerical integration</h2>
+			<div align="center">
+				<table style="width=100%">
+					<tr>
+						<td align="middle">
+							<img src="images/pinned2_ang1_part2_def.png" width="480px" />
+							<figcaption align="middle">Default simulation </figcaption>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<br /><br />
+			<h3 align="middle">Varing ks Simulations</h3>
+			<div align="center">
+				<table style="width=100%">
+					<tr>
+						<td align="middle">
+							<img src="images/pinned2_ang1_part2_high_ks.png" width="480px" />
+							<figcaption align="middle">High ks Simulation</figcaption>
+						</td>
+						<td>
+							<img src="images/pinned2_ang1_part2_low_ks.png" width="480px" />
+							<figcaption align="middle">Low ks Simulation</figcaption><!-- this might be a problem later i can't remember-->
+						</td>
+					</tr>
+				</table>
+			</div>
+			<p>
+				When we tested with a higher ks the simulation looked like the cloth was held tighter together causing less wrinkles in the simulation.
+				<br />
+				Then when we later look at the simulation with a low ks and we see that the dip in pinned2 looks deeper and making it seem heavier also causing a deep “wrinkle” right under the dip but causing the side “wrinkles” to seem shallower.
+			</p>
 			<br />
-			Having a very low density gives a similar effect of having the high ks making the cloth look much smoother but having the dip start to disappear because there is less weight pulling down on the cloth
-		</p>
+			<h3 align="middle">Varing Density Simulations</h3>
+			<div align="center">
+				<table style="width=100%">
+					<tr>
+						<td align="middle">
+							<img src="images/pinned2_ang1_part2_high_density.png" width="480px" />
+							<figcaption align="middle">High Density Simulation</figcaption>
+						</td>
+						<td>
+							<img src="images/pinned2_ang1_part2_low_density.png" width="480px" />
+							<figcaption align="middle">Low Density Simulation</figcaption><!-- this might be a problem later i can't remember-->
+						</td>
+					</tr>
+				</table>
+			</div>
+			<p>
+				High density actually only affected the dip in the cloth actually making it heavier and causing a sort of second dip right below the first due to the weight that the top of the cloth is actually having to support.
+				<br />
+				Having a very low density gives a similar effect of having the high ks making the cloth look much smoother but having the dip start to disappear because there is less weight pulling down on the cloth
+			</p>
 
-		<br />
-		<h3 align="middle">Varing Damdping Simulations</h3>
-		<div align="center">
-			<table style="width=100%">
-				<tr>
-					<td align="middle">
-						<img src="images/pinned2_ang1_part2_high_damping.png" width="480px" />
-						<figcaption align="middle">High Damping Simulation</figcaption>
-					</td>
-					<td>
-						<img src="images/pinned2_ang1_part2_low_damping.png" width="480px" />
-						<figcaption align="middle">Low Damping Simulation</figcaption><!-- this might be a problem later i can't remember-->
-					</td>
-				</tr>
-			</table>
-		</div>
-		<p>
-			High damping made the cloth very light like a feather and it didn’t move very much even when it neutered its resting state
 			<br />
-			Low damping, on the other hand, caused the cloth to fly around very quickly and uncontrolled. It seemed unnatural and more like something we might see during a very unnaturally windy day.
-		</p>
-		<br /><br />
-		<h2 align="middle">Part III: Handling collisions with other objects</h2>
-		<div align="center">
-			<table style="width=100%">
-				<tr>
-					<td align="middle">
-						<img src="images/sphere_ang1_part3_ks_5000.png" width="480px" />
-						<figcaption align="middle">Default ks on Sphere Simulation</figcaption>
-					</td>
-					<td>
-						<img src="images/sphere_ang1_part3_ks_500.png" width="480px" />
-						<figcaption align="middle">Low ks on Sphere Simulation</figcaption><!-- this might be a problem later i can't remember-->
-					</td>
-					<td>
-						<img src="images/sphere_ang1_part3_ks_50000.png" width="480px" />
-						<figcaption align="middle">High ks on Sphere Simulation</figcaption><!-- this might be a problem later i can't remember-->
-					</td>
-				</tr>
-			</table>
-		</div>
-		<p>
-			The difference in these images seems to me the number of frills and the distance between frills on the sphere.  With the 50,000 ks making the cloth look more like a tough felt not really wanting to bend very much or droop straight down, most of the bends starting from a high point on the sphere. Then the 5,000 ks has the cloth point more downwards, having more frills and starting lower down on the sphere. Finally the 500 ks has the cloth droop the most with the frills starring almost right at the middle of the sphere and having more of them than the other 2 images.
-		</p>
-		<br />
-
-		<div align="center">
-			<table style="width=100%">
-				<tr>
-					<td align="middle">
-						<img src="images/sphere_ang2_part3_colored.png" width="480px" />
-						<figcaption align="middle">High </figcaption>
-					</td>
-				</tr>
-			</table>
-		</div>
-		<h2 align="middle">Part IV: Handling collisions with other objects</h2>
-		<h3 align="middle">3 steps of falling simulation</h3>
-		<div align="center">
-			<table style="width=100%">
-				<tr>
-					<td align="middle">
-						<img src="images/selfcollision_ang1_part4_beggining.png" width="480px" />
-						<figcaption align="middle">Slightly after the start of the selfcollision simulation</figcaption>
-					</td>
-					<td>
-						<img src="images/selfcollision_ang1_part4_middle.png" width="480px" />
-						<figcaption align="middle">Middle of the selfcollision simulation</figcaption><!-- this might be a problem later i can't remember-->
-					</td>
-					<td>
-						<img src="images/selfcollision_ang1_part4_end.png" width="480px" />
-						<figcaption align="middle">End or resting point of selfcollision simulation</figcaption><!-- this might be a problem later i can't remember-->
-					</td>
-				</tr>
-			</table>
-		</div>
-		<br />
-		<p>
-			I will now be showing multiple images in sets of 2 shots with differing variables.
-		</p>
-		<br />
-		<h3 align="middle">High Density with a Starting ks</h3>
-		<div align="center">
-			<table style="width=100%">
-				<tr>
-					<td align="middle">
-						<img src="images/selfcollision_shot1_part4_high_dens_reg_ks.png" width="480px" />
-						<figcaption align="middle">Simulation picture with high desnity and starter ks with all collisions first contact</figcaption>
-					</td>
-					<td>
-						<img src="images/selfcollision_shot2_part4_high_dens_reg_ks.png" width="480px" />
-						<figcaption align="middle">Simulation resting point with little movements for high density and starter ks</figcaption><!-- this might be a problem later i can't remember-->
-					</td>
-				</tr>
-			</table>
-		</div>
-		<br />
-		<h3 align="middle">High Density with High ks</h3>
-		<div align="center">
-			<table style="width=100%">
-				<tr>
-					<td align="middle">
-						<img src="images/selfcollision_shot1_part4_high_dens_high_ks.png" width="480px" />
-						<figcaption align="middle">Simulation picture with high desnity and starter ks with all collisions first contact</figcaption>
-					</td>
-					<td>
-						<img src="images/selfcollision_shot2_part4_high_dens_high_ks.png" width="480px" />
-						<figcaption align="middle">Simulation resting point with little movements for high density and high ks</figcaption><!-- this might be a problem later i can't remember-->
-					</td>
-				</tr>
-			</table>
-		</div>
-		<br />
-		<h3 align="middle">High Density with low ks</h3>
-		<div align="center">
-			<table style="width=100%">
-				<tr>
-					<td align="middle">
-						<img src="images/selfcollision_shot1_part4_high_dens_low_ks.png" width="480px" />
-						<figcaption align="middle">Simulation picture with high desnity and low ks with all collisions first contact</figcaption>
-					</td>
-					<td>
-						<img src="images/selfcollision_shot2_part4_high_dens_low_ks.png" width="480px" />
-						<figcaption align="middle">Simulation resting point with little movements for high density and low ks</figcaption><!-- this might be a problem later i can't remember-->
-					</td>
-				</tr>
-			</table>
-		</div>
-		<br />
-		<h3 align="middle">Starting Density with High ks</h3>
-		<div align="center">
-			<table style="width=100%">
-				<tr>
-					<td align="middle">
-						<img src="images/selfcollision_shot1_part4_reg_dens_high_ks.png" width="480px" />
-						<figcaption align="middle">Simulation picture with starting desnity and high ks with all collisions first contact</figcaption>
-					</td>
-					<td>
-						<img src="images/selfcollision_shot2_part4_reg_dens_high_ks.png" width="480px" />
-						<figcaption align="middle">Simulation resting point with little movements for starter density and high ks</figcaption><!-- this might be a problem later i can't remember-->
-					</td>
-				</tr>
-			</table>
-		</div>
-		<br />
-		<h3 align="middle">Staring Density with low ks</h3>
-		<div align="center">
-			<table style="width=100%">
-				<tr>
-					<td align="middle">
-						<img src="images/selfcollision_shot1_part4_reg_dens_low_ks.png" width="480px" />
-						<figcaption align="middle">Simulation picture with starting desnity and low ks with all collisions first contact</figcaption>
-					</td>
-					<td>
-						<img src="images/selfcollision_shot2_part4_reg_dens_low_ks.png" width="480px" />
-						<figcaption align="middle">Simulation resting point with little movements for starting density and low ks</figcaption><!-- this might be a problem later i can't remember-->
-					</td>
-				</tr>
-			</table>
-		</div>
-		<br />
-		<h3 align="middle">Low Density with Starting ks</h3>
-		<div align="center">
-			<table style="width=100%">
-				<tr>
-					<td align="middle">
-						<img src="images/selfcollision_shot1_part4_low_dens_reg_ks.png" width="480px" />
-						<figcaption align="middle">Simulation picture with low desnity and starter ks with all collisions first contact</figcaption>
-					</td>
-					<td>
-						<img src="images/selfcollision_shot2_part4_low_dens_reg_ks.png" width="480px" />
-						<figcaption align="middle">Simulation resting point with little movements for low density and starter ks</figcaption><!-- this might be a problem later i can't remember-->
-					</td>
-				</tr>
-			</table>
-		</div>
-		<br />
-		<h3 align="middle">Low Density with High ks</h3>
-		<div align="center">
-			<table style="width=100%">
-				<tr>
-					<td align="middle">
-						<img src="images/selfcollision_shot1_part4_low_dens_high_ks.png" width="480px" />
-						<figcaption align="middle">Simulation picture with low desnity and high ks with all collisions first contact</figcaption>
-					</td>
-					<td>
-						<img src="images/selfcollision_shot2_part4_low_dens_high_ks.png" width="480px" />
-						<figcaption align="middle">Simulation resting point with little movements for low density and high ks</figcaption><!-- this might be a problem later i can't remember-->
-					</td>
-				</tr>
-			</table>
-		</div>
-		<br />
-		<h3 align="middle">Low Density with Low ks</h3>
-		<div align="center">
-			<table style="width=100%">
-				<tr>
-					<td align="middle">
-						<img src="images/selfcollision_shot1_part4_low_dens_low_ks.png" width="480px" />
-						<figcaption align="middle">Simulation picture with low desnity and low ks with all collisions first contact</figcaption>
-					</td>
-					<td>
-						<img src="images/selfcollision_shot2_part4_low_dens_reg_ks.png" width="480px" />
-						<figcaption align="middle">Simulation resting point with little movements for low density and low ks</figcaption><!-- this might be a problem later i can't remember-->
-					</td>
-				</tr>
-			</table>
-		</div>
-		<br />
-		<p>
-			When the spring constant was high the cloth tried to keep its original shaper more typically making the cloth flatter and having it fall into place faster while the low spring constant felt like it would stay in more awkward or even more realistic positions. The density on the other hand made the cloth have more difficulty in readjusting itself when spring constant wasn’t also high  causing more bumps in the cloth where potentially overlapping parts would be.
-		</p>
-		<br /><br />
-
-		<h2 align="middle">Part V:  Shaders</h2>
-		<p>
-			In this section we used prior knowledge from the shaders and part 3 labs in order to get through most of the work encountering very different and new problems when it came to bump and displacement but all we had to do then was follow the instructions given to us.
+			<h3 align="middle">Varing Damdping Simulations</h3>
+			<div align="center">
+				<table style="width=100%">
+					<tr>
+						<td align="middle">
+							<img src="images/pinned2_ang1_part2_high_damping.png" width="480px" />
+							<figcaption align="middle">High Damping Simulation</figcaption>
+						</td>
+						<td>
+							<img src="images/pinned2_ang1_part2_low_damping.png" width="480px" />
+							<figcaption align="middle">Low Damping Simulation</figcaption><!-- this might be a problem later i can't remember-->
+						</td>
+					</tr>
+				</table>
+			</div>
+			<p>
+				High damping made the cloth very light like a feather and it didn’t move very much even when it neutered its resting state
+				<br />
+				Low damping, on the other hand, caused the cloth to fly around very quickly and uncontrolled. It seemed unnatural and more like something we might see during a very unnaturally windy day.
+			</p>
+			<br /><br />
+			<h2 align="middle">Part III: Handling collisions with other objects</h2>
+			<div align="center">
+				<table style="width=100%">
+					<tr>
+						<td align="middle">
+							<img src="images/sphere_ang1_part3_ks_5000.png" width="480px" />
+							<figcaption align="middle">Default ks on Sphere Simulation</figcaption>
+						</td>
+						<td>
+							<img src="images/sphere_ang1_part3_ks_500.png" width="480px" />
+							<figcaption align="middle">Low ks on Sphere Simulation</figcaption><!-- this might be a problem later i can't remember-->
+						</td>
+						<td>
+							<img src="images/sphere_ang1_part3_ks_50000.png" width="480px" />
+							<figcaption align="middle">High ks on Sphere Simulation</figcaption><!-- this might be a problem later i can't remember-->
+						</td>
+					</tr>
+				</table>
+			</div>
+			<p>
+				The difference in these images seems to me the number of frills and the distance between frills on the sphere.  With the 50,000 ks making the cloth look more like a tough felt not really wanting to bend very much or droop straight down, most of the bends starting from a high point on the sphere. Then the 5,000 ks has the cloth point more downwards, having more frills and starting lower down on the sphere. Finally the 500 ks has the cloth droop the most with the frills starring almost right at the middle of the sphere and having more of them than the other 2 images.
+			</p>
 			<br />
-			Shader programs are used to determine what type of shading will be used on the model. Vertex shaders might change the position of different points on the model, and pass in values to the fragment shader which uses them to determine the color that a certain pixel will have. The Blinn-Phong shader takes into account ambient lighting, diffuse reflections, and specular highlights to create a very smooth looking model.
-		</p>
 
-		<div align="center">
-			<table style="width=100%">
-				<tr>
-					<td align="middle">
-						<img src="images/sphere_ang1_part5_k_a_3.png" width="480px" />
-						<figcaption align="middle">Sphere with just ambient light k_a=3</figcaption>
-					</td>
-					<td>
-						<img src="images/sphere_ang1_part5_diffuse_shading.png" width="480px" />
-						<figcaption align="middle">Sphere with only diffuse shading </figcaption><!-- this might be a problem later i can't remember-->
-					</td>
-					<td>
-						<img src="images/sphere_ang1_part5_specular_highlights.png" width="480px" />
-						<figcaption align="middle">Sphere with only specular highlights </figcaption><!-- this might be a problem later i can't remember-->
-					</td>
-					<td>
-						<img src="images/sphere_ang1_part5_full_blinn-phong.png" width="480px" />
-						<figcaption align="middle">Sphere with only full Blinn-Phong </figcaption><!-- this might be a problem later i can't remember-->
-					</td>
-				</tr>
-			</table>
-		</div>
-		<br />
-		<p>
-			Custom texture
+			<div align="center">
+				<table style="width=100%">
+					<tr>
+						<td align="middle">
+							<img src="images/sphere_ang2_part3_colored.png" width="480px" />
+							<figcaption align="middle">High </figcaption>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<h2 align="middle">Part IV: Handling collisions with other objects</h2>
+			<h3 align="middle">3 steps of falling simulation</h3>
+			<div align="center">
+				<table style="width=100%">
+					<tr>
+						<td align="middle">
+							<img src="images/selfcollision_ang1_part4_beggining.png" width="480px" />
+							<figcaption align="middle">Slightly after the start of the selfcollision simulation</figcaption>
+						</td>
+						<td>
+							<img src="images/selfcollision_ang1_part4_middle.png" width="480px" />
+							<figcaption align="middle">Middle of the selfcollision simulation</figcaption><!-- this might be a problem later i can't remember-->
+						</td>
+						<td>
+							<img src="images/selfcollision_ang1_part4_end.png" width="480px" />
+							<figcaption align="middle">End or resting point of selfcollision simulation</figcaption><!-- this might be a problem later i can't remember-->
+						</td>
+					</tr>
+				</table>
+			</div>
 			<br />
-			We chose Ganyu from Genshin impact as our custom texture.
-		</p>
-		<br />
-		<div align="center">
-			<table style="width=100%">
-				<tr>
-					<td align="middle">
-						<img src="images/sphere_shot1_part5_Ganyu.png" width="480px" />
-						<figcaption align="middle">Ganyu textrued cloth and sphere</figcaption>
-					</td>
-					<td>
-						<img src="images/sphere_shot2_part5_Ganyu.png" width="480px" />
-						<figcaption align="middle">Ganyu textrued cloth resting on sphere</figcaption><!-- this might be a problem later i can't remember-->
-					</td>
-				</tr>
-			</table>
-		</div>
-		<br />
-		<h3 align="middle">Bump with brick texture staff settings</h3>
-		<div align="center">
-			<table style="width=100%">
-				<tr>
-					<td align="middle">
-						<img src="images/sphere_shot1_part5_bump_org.png" width="480px" />
-						<figcaption align="middle">Bump staff setting sphere</figcaption>
-					</td>
-					<td>
-						<img src="images/sphere_shot2_part5_bump_org.png" width="480px" />
-						<figcaption align="middle">Bump staff setting cloth</figcaption><!-- this might be a problem later i can't remember-->
-					</td>
-					<td>
-						<img src="images/sphere_shot3_part5_bump_org.png" width="480px" />
-						<figcaption align="middle">Bump staff settting cloth on sphere</figcaption><!-- this might be a problem later i can't remember-->
-					</td>
-				</tr>
-			</table>
-		</div>
-		<br />
-		<h3 align="middle">Displacment with brick texture staff settings</h3>
-		<div align="center">
-			<table style="width=100%">
-				<tr>
-					<td align="middle">
-						<img src="images/sphere_shot1_part5_disp_org.png" width="480px" />
-						<figcaption align="middle">Displacment staff setting sphere</figcaption>
-					</td>
-					<td>
-						<img src="images/sphere_shot2_part5_disp_org.png" width="480px" />
-						<figcaption align="middle">Displacment staff setting cloth</figcaption><!-- this might be a problem later i can't remember-->
-					</td>
-					<td>
-						<img src="images/sphere_shot1_part5_disp_org.png" width="480px" />
-						<figcaption align="middle">Displacment staff setting cloth on sphere</figcaption><!-- this might be a problem later i can't remember-->
-					</td>
-				</tr>
-			</table>
-		</div>
-		<p>
-			In both approaches, you can see the influence that the texture has on the sphere and cloth since they don’t look completely smooth anymore. The bump method only changes the coloring (shading) of the model, so it still looks kind of like a flat picture even though there are highlights and shadows. The displacement method actually changes the position of the vertices, so the shading looks more realistic since the model dips where there are shadows, and is highlighted where the model sticks out a bit.
-		</p>
-		<br />
-		<div align="center">
-			<table style="width=100%">
-				<tr>
-					<td align="middle">
-						<img src="images/sphere_ang1_part5_bump_16.png" width="480px" />
-						<figcaption align="middle">Bump 16 o and a setting sphere and cloth</figcaption>
-					</td>
-					<td>
-						<img src="images/sphere_ang1_part5_bump_128.png" width="480px" />
-						<figcaption align="middle">Bump 128 o and a setting sphere and cloth</figcaption><!-- this might be a problem later i can't remember-->
-					</td>
-				</tr>
-			</table>
-		</div>
-		<p>
-			For the bump shader, it looks like the finer mesh has a slightly brighter highlight spot on the sphere. However, the white lines from the brick texture look softer in the finer mesh as well.
-		</p>
-		<br />
-		<div align="center">
-			<table style="width=100%">
-				<tr>
-					<td align="middle">
-						<img src="images/sphere_ang1_part5_disp_16.png" width="480px" />
-						<figcaption align="middle">Displacment 16 o and a setting sphere and cloth</figcaption>
-					</td>
-					<td>
-						<img src="images/sphere_ang1_part5_disp_128.png" width="480px" />
-						<figcaption align="middle">Displacment 128 o and a setting sphere and cloth</figcaption><!-- this might be a problem later i can't remember-->
-					</td>
-				</tr>
-			</table>
-		</div>
-		<p>
-			The difference between the meshes can be seen more clearly with the displacement shader. The indents into the sphere are more nuisance in the finer mesh, and it doesn’t look like we just took a triangle-ish shaped chunk out of the sphere like the coarser mesh. The “flat” parts of the brick texture seem to have straighter edges on the sphere for the finer mesh than the coarser mesh.
-		</p>
-		<br />
-		<h3 align="middle">Mirror Shader</h3>
-
-		<div align="center">
-			<table style="width=100%">
-				<tr>
-					<td align="middle">
-						<img src="images/sphere_ang1_part5_mirror.png" width="480px" />
-						<figcaption align="middle">Displacment 16 o and a setting sphere and cloth</figcaption>
-					</td>
-				</tr>
-			</table>
-		</div>
-		<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-<style>
-  body {
-    padding: 100px;
-    width: 1000px;
-    margin: auto;
-    text-align: left;
-    font-weight: 300;
-    font-family: 'Open Sans', sans-serif;
-    color: #121212;
-  }
-  h1, h2, h3, h4 {
-    font-family: 'Source Sans Pro', sans-serif;
-  }
-</style>
-<title>CS 184 Mesh Editor</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link href="https://fonts.googleapis.com/css?family=Open+Sans|Source+Sans+Pro" rel="stylesheet">
-</head>
-
-
-<body>
-
-<h1 align="middle">CS 184: Computer Graphics and Imaging, Spring 2022</h1>
-<h1 align="middle">Project 4: Cloth Simulator</h1>
-<h2 align="middle">Amy Tran,Kevin Ponce CS184-</h2>
-
-<br><br>
-
-	<div>
-
-		<h2 align="middle">Overview</h2>
-		<p>In this project we learn how to simluate cloth through the use of springs and the connections between the srpings whoch allows us to make more realistic falling and folding from the cloth and on surfaces like spheres or planes. We also learn how to map textures onto this moving cloth to look as it should, taking into account the folds of the cloth.</p>
-
-		<h2 align="middle">Part I: Masses and springs</h2>
-		<div align="center">
-			<table style="width=100%">
-				<tr>
-					<td align="middle">
-						<img src="images/pinned2_ang4_part1.png" width="480px" />
-						<figcaption align="middle">all constraints active mesh</figcaption>
-					</td>
-					<td>
-						<img src="images/pinned2_ang4_part1_shear.png" width="480px" />
-						<figcaption align="middle">only shearing active mesh</figcaption><!-- this might be a problem later i can't remember-->
-					</td>
-					<td>
-						<img src="images/pinned2_ang4_part1_noshear.png" width="480px" />
-						<figcaption align="middle">no shearing active mesh</figcaption><!-- this might be a problem later i can't remember-->
-					</td>
-				</tr>
-			</table>
-		</div>
-		<br />
-		<h2 align="middle">Part II: Simulation via numerical integration</h2>
-		<div align="center">
-			<table style="width=100%">
-				<tr>
-					<td align="middle">
-						<img src="images/pinned2_ang1_part2_def.png" width="480px" />
-						<figcaption align="middle">Default simulation </figcaption>
-					</td>
-				</tr>
-			</table>
-		</div>
-		<br /><br />
-		<h3 align="middle">Varing ks Simulations</h3>
-		<div align="center">
-			<table style="width=100%">
-				<tr>
-					<td align="middle">
-						<img src="images/pinned2_ang1_part2_high_ks.png" width="480px" />
-						<figcaption align="middle">High ks Simulation</figcaption>
-					</td>
-					<td>
-						<img src="images/pinned2_ang1_part2_low_ks.png" width="480px" />
-						<figcaption align="middle">Low ks Simulation</figcaption><!-- this might be a problem later i can't remember-->
-					</td>
-				</tr>
-			</table>
-		</div>
-		<p>
-			When we tested with a higher ks the simulation looked like the cloth was held tighter together causing less wrinkles in the simulation.
+			<p>
+				I will now be showing multiple images in sets of 2 shots with differing variables.
+			</p>
 			<br />
-			Then when we later look at the simulation with a low ks and we see that the dip in pinned2 looks deeper and making it seem heavier also causing a deep “wrinkle” right under the dip but causing the side “wrinkles” to seem shallower.
-		</p>
-		<br />
-		<h3 align="middle">Varing Density Simulations</h3>
-		<div align="center">
-			<table style="width=100%">
-				<tr>
-					<td align="middle">
-						<img src="images/pinned2_ang1_part2_high_density.png" width="480px" />
-						<figcaption align="middle">High Density Simulation</figcaption>
-					</td>
-					<td>
-						<img src="images/pinned2_ang1_part2_low_density.png" width="480px" />
-						<figcaption align="middle">Low Density Simulation</figcaption><!-- this might be a problem later i can't remember-->
-					</td>
-				</tr>
-			</table>
-		</div>
-		<p>
-			High density actually only affected the dip in the cloth actually making it heavier and causing a sort of second dip right below the first due to the weight that the top of the cloth is actually having to support.
+			<h3 align="middle">High Density with a Starting ks</h3>
+			<div align="center">
+				<table style="width=100%">
+					<tr>
+						<td align="middle">
+							<img src="images/selfcollision_shot1_part4_high_dens_reg_ks.png" width="480px" />
+							<figcaption align="middle">Simulation picture with high desnity and starter ks with all collisions first contact</figcaption>
+						</td>
+						<td>
+							<img src="images/selfcollision_shot2_part4_high_dens_reg_ks.png" width="480px" />
+							<figcaption align="middle">Simulation resting point with little movements for high density and starter ks</figcaption><!-- this might be a problem later i can't remember-->
+						</td>
+					</tr>
+				</table>
+			</div>
 			<br />
-			Having a very low density gives a similar effect of having the high ks making the cloth look much smoother but having the dip start to disappear because there is less weight pulling down on the cloth
-		</p>
-
-		<br />
-		<h3 align="middle">Varing Damdping Simulations</h3>
-		<div align="center">
-			<table style="width=100%">
-				<tr>
-					<td align="middle">
-						<img src="images/pinned2_ang1_part2_high_damping.png" width="480px" />
-						<figcaption align="middle">High Damping Simulation</figcaption>
-					</td>
-					<td>
-						<img src="images/pinned2_ang1_part2_low_damping.png" width="480px" />
-						<figcaption align="middle">Low Damping Simulation</figcaption><!-- this might be a problem later i can't remember-->
-					</td>
-				</tr>
-			</table>
-		</div>
-		<p>
-			High damping made the cloth very light like a feather and it didn’t move very much even when it neutered its resting state
+			<h3 align="middle">High Density with High ks</h3>
+			<div align="center">
+				<table style="width=100%">
+					<tr>
+						<td align="middle">
+							<img src="images/selfcollision_shot1_part4_high_dens_high_ks.png" width="480px" />
+							<figcaption align="middle">Simulation picture with high desnity and starter ks with all collisions first contact</figcaption>
+						</td>
+						<td>
+							<img src="images/selfcollision_shot2_part4_high_dens_high_ks.png" width="480px" />
+							<figcaption align="middle">Simulation resting point with little movements for high density and high ks</figcaption><!-- this might be a problem later i can't remember-->
+						</td>
+					</tr>
+				</table>
+			</div>
 			<br />
-			Low damping, on the other hand, caused the cloth to fly around very quickly and uncontrolled. It seemed unnatural and more like something we might see during a very unnaturally windy day.
-		</p>
-		<br /><br />
-		<h2 align="middle">Part III: Handling collisions with other objects</h2>
-		<div align="center">
-			<table style="width=100%">
-				<tr>
-					<td align="middle">
-						<img src="images/sphere_ang1_part3_ks_5000.png" width="480px" />
-						<figcaption align="middle">Default ks on Sphere Simulation</figcaption>
-					</td>
-					<td>
-						<img src="images/sphere_ang1_part3_ks_500.png" width="480px" />
-						<figcaption align="middle">Low ks on Sphere Simulation</figcaption><!-- this might be a problem later i can't remember-->
-					</td>
-					<td>
-						<img src="images/sphere_ang1_part3_ks_50000.png" width="480px" />
-						<figcaption align="middle">High ks on Sphere Simulation</figcaption><!-- this might be a problem later i can't remember-->
-					</td>
-				</tr>
-			</table>
-		</div>
-		<p>
-			The difference in these images seems to me the number of frills and the distance between frills on the sphere.  With the 50,000 ks making the cloth look more like a tough felt not really wanting to bend very much or droop straight down, most of the bends starting from a high point on the sphere. Then the 5,000 ks has the cloth point more downwards, having more frills and starting lower down on the sphere. Finally the 500 ks has the cloth droop the most with the frills starring almost right at the middle of the sphere and having more of them than the other 2 images.
-		</p>
-		<br />
-
-		<div align="center">
-			<table style="width=100%">
-				<tr>
-					<td align="middle">
-						<img src="images/sphere_ang2_part3_colored.png" width="480px" />
-						<figcaption align="middle">High </figcaption>
-					</td>
-				</tr>
-			</table>
-		</div>
-		<h2 align="middle">Part IV: Handling collisions with other objects</h2>
-		<h3 align="middle">3 steps of falling simulation</h3>
-		<div align="center">
-			<table style="width=100%">
-				<tr>
-					<td align="middle">
-						<img src="images/selfcollision_ang1_part4_beggining.png" width="480px" />
-						<figcaption align="middle">Slightly after the start of the selfcollision simulation</figcaption>
-					</td>
-					<td>
-						<img src="images/selfcollision_ang1_part4_middle.png" width="480px" />
-						<figcaption align="middle">Middle of the selfcollision simulation</figcaption><!-- this might be a problem later i can't remember-->
-					</td>
-					<td>
-						<img src="images/selfcollision_ang1_part4_end.png" width="480px" />
-						<figcaption align="middle">End or resting point of selfcollision simulation</figcaption><!-- this might be a problem later i can't remember-->
-					</td>
-				</tr>
-			</table>
-		</div>
-		<br />
-		<p>
-			I will now be showing multiple images in sets of 2 shots with differing variables.
-		</p>
-		<br />
-		<h3 align="middle">High Density with a Starting ks</h3>
-		<div align="center">
-			<table style="width=100%">
-				<tr>
-					<td align="middle">
-						<img src="images/selfcollision_shot1_part4_high_dens_reg_ks.png" width="480px" />
-						<figcaption align="middle">Simulation picture with high desnity and starter ks with all collisions first contact</figcaption>
-					</td>
-					<td>
-						<img src="images/selfcollision_shot2_part4_high_dens_reg_ks.png" width="480px" />
-						<figcaption align="middle">Simulation resting point with little movements for high density and starter ks</figcaption><!-- this might be a problem later i can't remember-->
-					</td>
-				</tr>
-			</table>
-		</div>
-		<br />
-		<h3 align="middle">High Density with High ks</h3>
-		<div align="center">
-			<table style="width=100%">
-				<tr>
-					<td align="middle">
-						<img src="images/selfcollision_shot1_part4_high_dens_high_ks.png" width="480px" />
-						<figcaption align="middle">Simulation picture with high desnity and starter ks with all collisions first contact</figcaption>
-					</td>
-					<td>
-						<img src="images/selfcollision_shot2_part4_high_dens_high_ks.png" width="480px" />
-						<figcaption align="middle">Simulation resting point with little movements for high density and high ks</figcaption><!-- this might be a problem later i can't remember-->
-					</td>
-				</tr>
-			</table>
-		</div>
-		<br />
-		<h3 align="middle">High Density with low ks</h3>
-		<div align="center">
-			<table style="width=100%">
-				<tr>
-					<td align="middle">
-						<img src="images/selfcollision_shot1_part4_high_dens_low_ks.png" width="480px" />
-						<figcaption align="middle">Simulation picture with high desnity and low ks with all collisions first contact</figcaption>
-					</td>
-					<td>
-						<img src="images/selfcollision_shot2_part4_high_dens_low_ks.png" width="480px" />
-						<figcaption align="middle">Simulation resting point with little movements for high density and low ks</figcaption><!-- this might be a problem later i can't remember-->
-					</td>
-				</tr>
-			</table>
-		</div>
-		<br />
-		<h3 align="middle">Starting Density with High ks</h3>
-		<div align="center">
-			<table style="width=100%">
-				<tr>
-					<td align="middle">
-						<img src="images/selfcollision_shot1_part4_reg_dens_high_ks.png" width="480px" />
-						<figcaption align="middle">Simulation picture with starting desnity and high ks with all collisions first contact</figcaption>
-					</td>
-					<td>
-						<img src="images/selfcollision_shot2_part4_reg_dens_high_ks.png" width="480px" />
-						<figcaption align="middle">Simulation resting point with little movements for starter density and high ks</figcaption><!-- this might be a problem later i can't remember-->
-					</td>
-				</tr>
-			</table>
-		</div>
-		<br />
-		<h3 align="middle">Staring Density with low ks</h3>
-		<div align="center">
-			<table style="width=100%">
-				<tr>
-					<td align="middle">
-						<img src="images/selfcollision_shot1_part4_reg_dens_low_ks.png" width="480px" />
-						<figcaption align="middle">Simulation picture with starting desnity and low ks with all collisions first contact</figcaption>
-					</td>
-					<td>
-						<img src="images/selfcollision_shot2_part4_reg_dens_low_ks.png" width="480px" />
-						<figcaption align="middle">Simulation resting point with little movements for starting density and low ks</figcaption><!-- this might be a problem later i can't remember-->
-					</td>
-				</tr>
-			</table>
-		</div>
-		<br />
-		<h3 align="middle">Low Density with Starting ks</h3>
-		<div align="center">
-			<table style="width=100%">
-				<tr>
-					<td align="middle">
-						<img src="images/selfcollision_shot1_part4_low_dens_reg_ks.png" width="480px" />
-						<figcaption align="middle">Simulation picture with low desnity and starter ks with all collisions first contact</figcaption>
-					</td>
-					<td>
-						<img src="images/selfcollision_shot2_part4_low_dens_reg_ks.png" width="480px" />
-						<figcaption align="middle">Simulation resting point with little movements for low density and starter ks</figcaption><!-- this might be a problem later i can't remember-->
-					</td>
-				</tr>
-			</table>
-		</div>
-		<br />
-		<h3 align="middle">Low Density with High ks</h3>
-		<div align="center">
-			<table style="width=100%">
-				<tr>
-					<td align="middle">
-						<img src="images/selfcollision_shot1_part4_low_dens_high_ks.png" width="480px" />
-						<figcaption align="middle">Simulation picture with low desnity and high ks with all collisions first contact</figcaption>
-					</td>
-					<td>
-						<img src="images/selfcollision_shot2_part4_low_dens_high_ks.png" width="480px" />
-						<figcaption align="middle">Simulation resting point with little movements for low density and high ks</figcaption><!-- this might be a problem later i can't remember-->
-					</td>
-				</tr>
-			</table>
-		</div>
-		<br />
-		<h3 align="middle">Low Density with Low ks</h3>
-		<div align="center">
-			<table style="width=100%">
-				<tr>
-					<td align="middle">
-						<img src="images/selfcollision_shot1_part4_low_dens_low_ks.png" width="480px" />
-						<figcaption align="middle">Simulation picture with low desnity and low ks with all collisions first contact</figcaption>
-					</td>
-					<td>
-						<img src="images/selfcollision_shot2_part4_low_dens_reg_ks.png" width="480px" />
-						<figcaption align="middle">Simulation resting point with little movements for low density and low ks</figcaption><!-- this might be a problem later i can't remember-->
-					</td>
-				</tr>
-			</table>
-		</div>
-		<br />
-		<p>
-			When the spring constant was high the cloth tried to keep its original shaper more typically making the cloth flatter and having it fall into place faster while the low spring constant felt like it would stay in more awkward or even more realistic positions. The density on the other hand made the cloth have more difficulty in readjusting itself when spring constant wasn’t also high  causing more bumps in the cloth where potentially overlapping parts would be.
-		</p>
-		<br /><br />
-
-		<h2 align="middle">Part V:  Shaders</h2>
-		<p>
-			In this section we used prior knowledge from the shaders and part 3 labs in order to get through most of the work encountering very different and new problems when it came to bump and displacement but all we had to do then was follow the instructions given to us.
+			<h3 align="middle">High Density with low ks</h3>
+			<div align="center">
+				<table style="width=100%">
+					<tr>
+						<td align="middle">
+							<img src="images/selfcollision_shot1_part4_high_dens_low_ks.png" width="480px" />
+							<figcaption align="middle">Simulation picture with high desnity and low ks with all collisions first contact</figcaption>
+						</td>
+						<td>
+							<img src="images/selfcollision_shot2_part4_high_dens_low_ks.png" width="480px" />
+							<figcaption align="middle">Simulation resting point with little movements for high density and low ks</figcaption><!-- this might be a problem later i can't remember-->
+						</td>
+					</tr>
+				</table>
+			</div>
 			<br />
-			Shader programs are used to determine what type of shading will be used on the model. Vertex shaders might change the position of different points on the model, and pass in values to the fragment shader which uses them to determine the color that a certain pixel will have. The Blinn-Phong shader takes into account ambient lighting, diffuse reflections, and specular highlights to create a very smooth looking model.
-		</p>
-
-		<div align="center">
-			<table style="width=100%">
-				<tr>
-					<td align="middle">
-						<img src="images/sphere_ang1_part5_k_a_3.png" width="480px" />
-						<figcaption align="middle">Sphere with just ambient light k_a=3</figcaption>
-					</td>
-					<td>
-						<img src="images/sphere_ang1_part5_diffuse_shading.png" width="480px" />
-						<figcaption align="middle">Sphere with only diffuse shading </figcaption><!-- this might be a problem later i can't remember-->
-					</td>
-					<td>
-						<img src="images/sphere_ang1_part5_specular_highlights.png" width="480px" />
-						<figcaption align="middle">Sphere with only specular highlights </figcaption><!-- this might be a problem later i can't remember-->
-					</td>
-					<td>
-						<img src="images/sphere_ang1_part5_full_blinn-phong.png" width="480px" />
-						<figcaption align="middle">Sphere with only full Blinn-Phong </figcaption><!-- this might be a problem later i can't remember-->
-					</td>
-				</tr>
-			</table>
-		</div>
-		<br />
-		<p>
-			Custom texture
+			<h3 align="middle">Starting Density with High ks</h3>
+			<div align="center">
+				<table style="width=100%">
+					<tr>
+						<td align="middle">
+							<img src="images/selfcollision_shot1_part4_reg_dens_high_ks.png" width="480px" />
+							<figcaption align="middle">Simulation picture with starting desnity and high ks with all collisions first contact</figcaption>
+						</td>
+						<td>
+							<img src="images/selfcollision_shot2_part4_reg_dens_high_ks.png" width="480px" />
+							<figcaption align="middle">Simulation resting point with little movements for starter density and high ks</figcaption><!-- this might be a problem later i can't remember-->
+						</td>
+					</tr>
+				</table>
+			</div>
 			<br />
-			We chose Ganyu from Genshin impact as our custom texture.
-		</p>
-		<br />
-		<div align="center">
-			<table style="width=100%">
-				<tr>
-					<td align="middle">
-						<img src="images/sphere_shot1_part5_Ganyu.png" width="480px" />
-						<figcaption align="middle">Ganyu textrued cloth and sphere</figcaption>
-					</td>
-					<td>
-						<img src="images/sphere_shot2_part5_Ganyu.png" width="480px" />
-						<figcaption align="middle">Ganyu textrued cloth resting on sphere</figcaption><!-- this might be a problem later i can't remember-->
-					</td>
-				</tr>
-			</table>
-		</div>
-		<br />
-		<h3 align="middle">Bump with brick texture staff settings</h3>
-		<div align="center">
-			<table style="width=100%">
-				<tr>
-					<td align="middle">
-						<img src="images/sphere_shot1_part5_bump_org.png" width="480px" />
-						<figcaption align="middle">Bump staff setting sphere</figcaption>
-					</td>
-					<td>
-						<img src="images/sphere_shot2_part5_bump_org.png" width="480px" />
-						<figcaption align="middle">Bump staff setting cloth</figcaption><!-- this might be a problem later i can't remember-->
-					</td>
-					<td>
-						<img src="images/sphere_shot3_part5_bump_org.png" width="480px" />
-						<figcaption align="middle">Bump staff settting cloth on sphere</figcaption><!-- this might be a problem later i can't remember-->
-					</td>
-				</tr>
-			</table>
-		</div>
-		<br />
-		<h3 align="middle">Displacment with brick texture staff settings</h3>
-		<div align="center">
-			<table style="width=100%">
-				<tr>
-					<td align="middle">
-						<img src="images/sphere_shot1_part5_disp_org.png" width="480px" />
-						<figcaption align="middle">Displacment staff setting sphere</figcaption>
-					</td>
-					<td>
-						<img src="images/sphere_shot2_part5_disp_org.png" width="480px" />
-						<figcaption align="middle">Displacment staff setting cloth</figcaption><!-- this might be a problem later i can't remember-->
-					</td>
-					<td>
-						<img src="images/sphere_shot1_part5_disp_org.png" width="480px" />
-						<figcaption align="middle">Displacment staff setting cloth on sphere</figcaption><!-- this might be a problem later i can't remember-->
-					</td>
-				</tr>
-			</table>
-		</div>
-		<p>
-			In both approaches, you can see the influence that the texture has on the sphere and cloth since they don’t look completely smooth anymore. The bump method only changes the coloring (shading) of the model, so it still looks kind of like a flat picture even though there are highlights and shadows. The displacement method actually changes the position of the vertices, so the shading looks more realistic since the model dips where there are shadows, and is highlighted where the model sticks out a bit.
-		</p>
-		<br />
-		<div align="center">
-			<table style="width=100%">
-				<tr>
-					<td align="middle">
-						<img src="images/sphere_ang1_part5_bump_16.png" width="480px" />
-						<figcaption align="middle">Bump 16 o and a setting sphere and cloth</figcaption>
-					</td>
-					<td>
-						<img src="images/sphere_ang1_part5_bump_128.png" width="480px" />
-						<figcaption align="middle">Bump 128 o and a setting sphere and cloth</figcaption><!-- this might be a problem later i can't remember-->
-					</td>
-				</tr>
-			</table>
-		</div>
-		<p>
-			For the bump shader, it looks like the finer mesh has a slightly brighter highlight spot on the sphere. However, the white lines from the brick texture look softer in the finer mesh as well.
-		</p>
-		<br />
-		<div align="center">
-			<table style="width=100%">
-				<tr>
-					<td align="middle">
-						<img src="images/sphere_ang1_part5_disp_16.png" width="480px" />
-						<figcaption align="middle">Displacment 16 o and a setting sphere and cloth</figcaption>
-					</td>
-					<td>
-						<img src="images/sphere_ang1_part5_disp_128.png" width="480px" />
-						<figcaption align="middle">Displacment 128 o and a setting sphere and cloth</figcaption><!-- this might be a problem later i can't remember-->
-					</td>
-				</tr>
-			</table>
-		</div>
-		<p>
-			The difference between the meshes can be seen more clearly with the displacement shader. The indents into the sphere are more nuisance in the finer mesh, and it doesn’t look like we just took a triangle-ish shaped chunk out of the sphere like the coarser mesh. The “flat” parts of the brick texture seem to have straighter edges on the sphere for the finer mesh than the coarser mesh.
-		</p>
-		<br />
-		<h3 align="middle">Mirror Shader</h3>
+			<h3 align="middle">Staring Density with low ks</h3>
+			<div align="center">
+				<table style="width=100%">
+					<tr>
+						<td align="middle">
+							<img src="images/selfcollision_shot1_part4_reg_dens_low_ks.png" width="480px" />
+							<figcaption align="middle">Simulation picture with starting desnity and low ks with all collisions first contact</figcaption>
+						</td>
+						<td>
+							<img src="images/selfcollision_shot2_part4_reg_dens_low_ks.png" width="480px" />
+							<figcaption align="middle">Simulation resting point with little movements for starting density and low ks</figcaption><!-- this might be a problem later i can't remember-->
+						</td>
+					</tr>
+				</table>
+			</div>
+			<br />
+			<h3 align="middle">Low Density with Starting ks</h3>
+			<div align="center">
+				<table style="width=100%">
+					<tr>
+						<td align="middle">
+							<img src="images/selfcollision_shot1_part4_low_dens_reg_ks.png" width="480px" />
+							<figcaption align="middle">Simulation picture with low desnity and starter ks with all collisions first contact</figcaption>
+						</td>
+						<td>
+							<img src="images/selfcollision_shot2_part4_low_dens_reg_ks.png" width="480px" />
+							<figcaption align="middle">Simulation resting point with little movements for low density and starter ks</figcaption><!-- this might be a problem later i can't remember-->
+						</td>
+					</tr>
+				</table>
+			</div>
+			<br />
+			<h3 align="middle">Low Density with High ks</h3>
+			<div align="center">
+				<table style="width=100%">
+					<tr>
+						<td align="middle">
+							<img src="images/selfcollision_shot1_part4_low_dens_high_ks.png" width="480px" />
+							<figcaption align="middle">Simulation picture with low desnity and high ks with all collisions first contact</figcaption>
+						</td>
+						<td>
+							<img src="images/selfcollision_shot2_part4_low_dens_high_ks.png" width="480px" />
+							<figcaption align="middle">Simulation resting point with little movements for low density and high ks</figcaption><!-- this might be a problem later i can't remember-->
+						</td>
+					</tr>
+				</table>
+			</div>
+			<br />
+			<h3 align="middle">Low Density with Low ks</h3>
+			<div align="center">
+				<table style="width=100%">
+					<tr>
+						<td align="middle">
+							<img src="images/selfcollision_shot1_part4_low_dens_low_ks.png" width="480px" />
+							<figcaption align="middle">Simulation picture with low desnity and low ks with all collisions first contact</figcaption>
+						</td>
+						<td>
+							<img src="images/selfcollision_shot2_part4_low_dens_reg_ks.png" width="480px" />
+							<figcaption align="middle">Simulation resting point with little movements for low density and low ks</figcaption><!-- this might be a problem later i can't remember-->
+						</td>
+					</tr>
+				</table>
+			</div>
+			<br />
+			<p>
+				When the spring constant was high the cloth tried to keep its original shaper more typically making the cloth flatter and having it fall into place faster while the low spring constant felt like it would stay in more awkward or even more realistic positions. The density on the other hand made the cloth have more difficulty in readjusting itself when spring constant wasn’t also high  causing more bumps in the cloth where potentially overlapping parts would be.
+			</p>
+			<br /><br />
 
-		<div align="center">
-			<table style="width=100%">
-				<tr>
-					<td align="middle">
-						<img src="images/sphere_ang1_part5_mirror.png" width="480px" />
-						<figcaption align="middle">Displacment 16 o and a setting sphere and cloth</figcaption>
-					</td>
-				</tr>
-			</table>
+			<h2 align="middle">Part V:  Shaders</h2>
+			<p>
+				In this section we used prior knowledge from the shaders and part 3 labs in order to get through most of the work encountering very different and new problems when it came to bump and displacement but all we had to do then was follow the instructions given to us.
+				<br />
+				Shader programs are used to determine what type of shading will be used on the model. Vertex shaders might change the position of different points on the model, and pass in values to the fragment shader which uses them to determine the color that a certain pixel will have. The Blinn-Phong shader takes into account ambient lighting, diffuse reflections, and specular highlights to create a very smooth looking model.
+			</p>
+
+			<div align="center">
+				<table style="width=100%">
+					<tr>
+						<td align="middle">
+							<img src="images/sphere_ang1_part5_k_a_3.png" width="480px" />
+							<figcaption align="middle">Sphere with just ambient light k_a=3</figcaption>
+						</td>
+						<td>
+							<img src="images/sphere_ang1_part5_diffuse_shading.png" width="480px" />
+							<figcaption align="middle">Sphere with only diffuse shading </figcaption><!-- this might be a problem later i can't remember-->
+						</td>
+						<td>
+							<img src="images/sphere_ang1_part5_specular_highlights.png" width="480px" />
+							<figcaption align="middle">Sphere with only specular highlights </figcaption><!-- this might be a problem later i can't remember-->
+						</td>
+						<td>
+							<img src="images/sphere_ang1_part5_full_blinn-phong.png" width="480px" />
+							<figcaption align="middle">Sphere with only full Blinn-Phong </figcaption><!-- this might be a problem later i can't remember-->
+						</td>
+					</tr>
+				</table>
+			</div>
+			<br />
+			<p>
+				Custom texture
+				<br />
+				We chose Ganyu from Genshin impact as our custom texture.
+			</p>
+			<br />
+			<div align="center">
+				<table style="width=100%">
+					<tr>
+						<td align="middle">
+							<img src="images/sphere_shot1_part5_Ganyu.png" width="480px" />
+							<figcaption align="middle">Ganyu textrued cloth and sphere</figcaption>
+						</td>
+						<td>
+							<img src="images/sphere_shot2_part5_Ganyu.png" width="480px" />
+							<figcaption align="middle">Ganyu textrued cloth resting on sphere</figcaption><!-- this might be a problem later i can't remember-->
+						</td>
+					</tr>
+				</table>
+			</div>
+			<br />
+			<h3 align="middle">Bump with brick texture staff settings</h3>
+			<div align="center">
+				<table style="width=100%">
+					<tr>
+						<td align="middle">
+							<img src="images/sphere_shot1_part5_bump_org.png" width="480px" />
+							<figcaption align="middle">Bump staff setting sphere</figcaption>
+						</td>
+						<td>
+							<img src="images/sphere_shot2_part5_bump_org.png" width="480px" />
+							<figcaption align="middle">Bump staff setting cloth</figcaption><!-- this might be a problem later i can't remember-->
+						</td>
+						<td>
+							<img src="images/sphere_shot3_part5_bump_org.png" width="480px" />
+							<figcaption align="middle">Bump staff settting cloth on sphere</figcaption><!-- this might be a problem later i can't remember-->
+						</td>
+					</tr>
+				</table>
+			</div>
+			<br />
+			<h3 align="middle">Displacment with brick texture staff settings</h3>
+			<div align="center">
+				<table style="width=100%">
+					<tr>
+						<td align="middle">
+							<img src="images/sphere_shot1_part5_disp_org.png" width="480px" />
+							<figcaption align="middle">Displacment staff setting sphere</figcaption>
+						</td>
+						<td>
+							<img src="images/sphere_shot2_part5_disp_org.png" width="480px" />
+							<figcaption align="middle">Displacment staff setting cloth</figcaption><!-- this might be a problem later i can't remember-->
+						</td>
+						<td>
+							<img src="images/sphere_shot1_part5_disp_org.png" width="480px" />
+							<figcaption align="middle">Displacment staff setting cloth on sphere</figcaption><!-- this might be a problem later i can't remember-->
+						</td>
+					</tr>
+				</table>
+			</div>
+			<p>
+				In both approaches, you can see the influence that the texture has on the sphere and cloth since they don’t look completely smooth anymore. The bump method only changes the coloring (shading) of the model, so it still looks kind of like a flat picture even though there are highlights and shadows. The displacement method actually changes the position of the vertices, so the shading looks more realistic since the model dips where there are shadows, and is highlighted where the model sticks out a bit.
+			</p>
+			<br />
+			<div align="center">
+				<table style="width=100%">
+					<tr>
+						<td align="middle">
+							<img src="images/sphere_ang1_part5_bump_16.png" width="480px" />
+							<figcaption align="middle">Bump 16 o and a setting sphere and cloth</figcaption>
+						</td>
+						<td>
+							<img src="images/sphere_ang1_part5_bump_128.png" width="480px" />
+							<figcaption align="middle">Bump 128 o and a setting sphere and cloth</figcaption><!-- this might be a problem later i can't remember-->
+						</td>
+					</tr>
+				</table>
+			</div>
+			<p>
+				For the bump shader, it looks like the finer mesh has a slightly brighter highlight spot on the sphere. However, the white lines from the brick texture look softer in the finer mesh as well.
+			</p>
+			<br />
+			<div align="center">
+				<table style="width=100%">
+					<tr>
+						<td align="middle">
+							<img src="images/sphere_ang1_part5_disp_16.png" width="480px" />
+							<figcaption align="middle">Displacment 16 o and a setting sphere and cloth</figcaption>
+						</td>
+						<td>
+							<img src="images/sphere_ang1_part5_disp_128.png" width="480px" />
+							<figcaption align="middle">Displacment 128 o and a setting sphere and cloth</figcaption><!-- this might be a problem later i can't remember-->
+						</td>
+					</tr>
+				</table>
+			</div>
+			<p>
+				The difference between the meshes can be seen more clearly with the displacement shader. The indents into the sphere are more nuisance in the finer mesh, and it doesn’t look like we just took a triangle-ish shaped chunk out of the sphere like the coarser mesh. The “flat” parts of the brick texture seem to have straighter edges on the sphere for the finer mesh than the coarser mesh.
+			</p>
+			<br />
+			<h3 align="middle">Mirror Shader</h3>
+
+			<div align="center">
+				<table style="width=100%">
+					<tr>
+						<td align="middle">
+							<img src="images/sphere_ang1_part5_mirror.png" width="480px" />
+							<figcaption align="middle">Displacment 16 o and a setting sphere and cloth</figcaption>
+						</td>
+					</tr>
+				</table>
+			</div>
+
+			https://cal-cs184-student.github.io/sp22-project-webpages-amynattran/proj4/index.html
 		</div>
-
-		https://cal-cs184-student.github.io/sp22-project-webpages-amynattran/proj4/index.html
-	</div></body>
-</html>
-
-
-
-	</div>
 </body>
 </html>
